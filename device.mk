@@ -719,7 +719,7 @@ endif
 endif
 
 # hdmi cec
-ifneq ($(filter atv box, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
+# ifneq ($(filter atv box, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
 BOARD_SHOW_HDMI_SETTING := true
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.hdmi.cec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.hdmi.cec.xml \
@@ -729,11 +729,14 @@ PRODUCT_PROPERTY_OVERRIDES += ro.hdmi.device_type=4
 PRODUCT_PACKAGES += \
 	hdmi_cec.$(TARGET_BOARD_PLATFORM)
 
+DEVICE_MANIFEST_FILE += \
+    device/khadas/common/manifests/android.hardware.tv.cec@1.0.xml
+
 # HDMI CEC HAL
 PRODUCT_PACKAGES += \
     android.hardware.tv.cec@1.0-impl \
     android.hardware.tv.cec@1.0-service
-endif
+# endif
 
 ifeq ($(strip $(BOARD_SHOW_HDMI_SETTING)), true)
 PRODUCT_PROPERTY_OVERRIDES += \
