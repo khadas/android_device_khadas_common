@@ -203,7 +203,7 @@ BOARD_HAVE_FLASH ?= true
 
 #HDMI support
 BOARD_SUPPORT_HDMI ?= true
-BOARD_SUPPORT_HDMI_CEC ?= false
+BOARD_SUPPORT_HDMI_CEC ?= true
 
 # gralloc 4.0
 include device/khadas/common/gralloc.device.mk
