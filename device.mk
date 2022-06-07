@@ -900,7 +900,7 @@ ifneq ($(filter atv box, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
     endif
     DEVICE_FRAMEWORK_MANIFEST_FILE := device/khadas/common/manifest_framework_override.xml
 endif
-
+PRODUCT_PACKAGES += saveBaseParameter
 # add AudioSetting
 PRODUCT_PACKAGES += \
     rockchip.hardware.rkaudiosetting@1.0-service \
