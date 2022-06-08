@@ -35,6 +35,9 @@ PRODUCT_PACKAGES += \
     ExactCalculator \
     wakeup-alarmalign-whitelist.xml
 
+PRODUCT_PACKAGES += \
+    FactoryTest
+
 ifdef TARGET_PREBUILT_KERNEL
 # Copy kernel if exists
 PRODUCT_COPY_FILES += \
