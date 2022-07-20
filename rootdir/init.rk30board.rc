@@ -131,7 +131,12 @@ on boot
     chown system system /sys/class/backlight/backlight-mipi2/brightness
     chmod 0664 /sys/class/backlight/backlight-mipi1/brightness
     chmod 0664 /sys/class/backlight/backlight-mipi2/brightness
-    
+
+    #add for cooling fan
+    chmod 0666 /sys/class/fan/mode
+    chmod 0666 /sys/class/fan/level
+    chmod 0666 /sys/class/fan/enable
+
     # for hdmi
     chown root system /sys/class/display/HDMI/enable
     chown root system /sys/class/display/HDMI/mode
