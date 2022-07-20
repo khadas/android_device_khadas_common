@@ -127,6 +127,10 @@ on boot
     # backlight
     chown system system /sys/class/backlight/rk28_bl/brightness
     chown system system /sys/class/backlight/backlight/brightness
+    chown system system /sys/class/backlight/backlight-mipi1/brightness
+    chown system system /sys/class/backlight/backlight-mipi2/brightness
+    chmod 0664 /sys/class/backlight/backlight-mipi1/brightness
+    chmod 0664 /sys/class/backlight/backlight-mipi2/brightness
     
     # for hdmi
     chown root system /sys/class/display/HDMI/enable
