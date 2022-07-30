@@ -35,7 +35,9 @@ PRODUCT_PACKAGES += \
     ExactCalculator
 
 PRODUCT_PACKAGES += \
-    FactoryTest
+    FactoryTest \
+    KSettings \
+    SchPwrOnOff
 
 ifdef TARGET_PREBUILT_KERNEL
 # Copy kernel if exists
