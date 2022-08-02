@@ -47,7 +47,7 @@ mkdir -p $IMAGE_PATH
 FSTYPE=ext4
 echo system filesysystem is $FSTYPE
 
-BOARD_CONFIG=device/rockchip/common/device.mk
+BOARD_CONFIG=device/khadas/common/device.mk
 
 PARAMETER=${TARGET_DEVICE_DIR}/parameter_ab.txt
 FLASH_CONFIG_FILE=${TARGET_DEVICE_DIR}/config.cfg_ab
@@ -129,7 +129,7 @@ if [ "$BOARD_AVB_ENABLE" = "true" ]; then
 cp -a $OUT/vbmeta.img $IMAGE_PATH/vbmeta.img
 else
 echo -n "BOARD_AVB_ENABLE is false,use default vbmeta.img"
-cp -a device/rockchip/common/vbmeta.img $IMAGE_PATH/vbmeta.img
+cp -a device/khadas/common/vbmeta.img $IMAGE_PATH/vbmeta.img
 fi
 echo -n "done."
 
@@ -231,7 +231,7 @@ fi
 
 SHARED_LIBRARIES_DIR=out/host/linux-x86/lib64
 JAVA_LIBRARIES_DIR=out/host/linux-x86/framework
-OTA_KEY_DIR=device/rockchip/common/security
+OTA_KEY_DIR=device/khadas/common/security
 
 if [ $TARGET == $BOOT_OTA ]; then
     echo "create update_loader.zip.."

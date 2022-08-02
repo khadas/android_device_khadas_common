@@ -62,6 +62,6 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.0-service \
     android.hardware.gatekeeper@1.0-service.software
 
-DEVICE_MANIFEST_FILE += device/rockchip/common/manifests/android.hardware.keymaster@4.0-service.xml
+DEVICE_MANIFEST_FILE += device/khadas/common/manifests/android.hardware.keymaster@4.0-service.xml
 
 endif

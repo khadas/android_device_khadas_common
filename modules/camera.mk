@@ -27,12 +27,12 @@ PRODUCT_COPY_FILES += \
 
 #EXT only
 ifeq ($(BOARD_CAMERA_SUPPORT_EXT),true)
-DEVICE_MANIFEST_FILE += device/rockchip/common/manifests/android.hardware.camera.provider@2.4-provider.external.xml
+DEVICE_MANIFEST_FILE += device/khadas/common/manifests/android.hardware.camera.provider@2.4-provider.external.xml
 endif
 
 #VIR only
 ifeq ($(BOARD_CAMERA_SUPPORT_VIR),true)
-DEVICE_MANIFEST_FILE += device/rockchip/common/manifests/android.hardware.camera.provider@2.4-provider.virtual.xml
+DEVICE_MANIFEST_FILE += device/khadas/common/manifests/android.hardware.camera.provider@2.4-provider.virtual.xml
 endif
 
 #both VIR and EXT
@@ -41,11 +41,11 @@ else ifneq (,$(filter true, $(BOARD_CAMERA_SUPPORT_VIR) $(BOARD_CAMERA_SUPPORT_E
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.external.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.external.xml
 
-DEVICE_MANIFEST_FILE += device/rockchip/common/manifests/android.hardware.camera.provider@2.4-provider.external-virtual.xml
+DEVICE_MANIFEST_FILE += device/khadas/common/manifests/android.hardware.camera.provider@2.4-provider.external-virtual.xml
 
 # legacy only
 else
-DEVICE_MANIFEST_FILE += device/rockchip/common/manifests/android.hardware.camera.provider@2.4-provider.legacy.xml
+DEVICE_MANIFEST_FILE += device/khadas/common/manifests/android.hardware.camera.provider@2.4-provider.legacy.xml
 endif
 
 #camera hal for structured light
@@ -64,7 +64,7 @@ PRODUCT_COPY_FILES += \
     $(PRODUCT_USB_CAMERA_CONFIG):$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 else
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
+    device/khadas/common/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 endif
 
 PRODUCT_PACKAGES += \
@@ -120,5 +120,5 @@ PRODUCT_PACKAGES += \
 endif
 ifeq ($(CAMERA_SUPPORT_VIRTUAL),true)
 PRODUCT_COPY_FILES += \
-	device/rockchip/common/1920x1080.yuv:$(TARGET_COPY_OUT_VENDOR)/etc/camera/1920x1080.yuv
+	device/khadas/common/1920x1080.yuv:$(TARGET_COPY_OUT_VENDOR)/etc/camera/1920x1080.yuv
 endif

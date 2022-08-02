@@ -141,7 +141,7 @@ check_SELINUX() {
 check_AAPT_CONFIG() {
     log "Checking aapt and dpi config..."
     AAPT_PERF=`get_build_var PRODUCT_AAPT_PREF_CONFIG`
-    RET_AAPT_LIST=`grep -r PRODUCT_AAPT_CONFIG device/rockchip/common/device.mk`
+    RET_AAPT_LIST=`grep -r PRODUCT_AAPT_CONFIG device/khadas/common/device.mk`
     assert_value_in_string $AAPT_PERF $RET_AAPT_LIST "$AAPT_PERF not in PRODUCT_AAPT_CONFIG list, please add $AAPT_PERF to list."
     TMP_DPI="ro.sf.lcd_density=${dpi_aapt_map["$AAPT_PERF"]}"
     define_api=`grep ro.sf.lcd_density $OUT/vendor/build.prop`

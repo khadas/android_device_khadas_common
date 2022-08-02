@@ -29,14 +29,14 @@ ifeq ($(strip $(USE_AB_PARAMETER)), true)
         ifeq ($(PRODUCT_RETROFIT_DYNAMIC_PARTITIONS), true)
             BOARD_SUPER_PARTITION_METADATA_DEVICE := system
             BOARD_SUPER_PARTITION_BLOCK_DEVICES := system vendor odm
-            BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt system_a)
-            BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt vendor_a)
-            BOARD_SUPER_PARTITION_ODM_DEVICE_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt odm_a)
+            BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt system_a)
+            BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt vendor_a)
+            BOARD_SUPER_PARTITION_ODM_DEVICE_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt odm_a)
 
             BOARD_SUPER_PARTITION_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE) + $(BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE) + $(BOARD_SUPER_PARTITION_ODM_DEVICE_SIZE))
             BOARD_ROCKCHIP_DYNAMIC_PARTITIONS_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SIZE) - 4194304)
         else
-            BOARD_SUPER_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt super)
+            BOARD_SUPER_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt super)
             ifeq ($(BOARD_ROCKCHIP_VIRTUAL_AB_ENABLE), true)
                 BOARD_ROCKCHIP_DYNAMIC_PARTITIONS_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SIZE) - 4194304)
             else
@@ -44,16 +44,16 @@ ifeq ($(strip $(USE_AB_PARAMETER)), true)
             endif
         endif
     else
-        BOARD_SYSTEMIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt system_a)
-        BOARD_VENDORIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt vendor_a)
-        BOARD_ODMIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt odm_a)
+        BOARD_SYSTEMIMAGE_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt system_a)
+        BOARD_VENDORIMAGE_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt vendor_a)
+        BOARD_ODMIMAGE_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt odm_a)
     endif
-    BOARD_CACHEIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt cache)
-    BOARD_BOOTIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt boot_a)
-    BOARD_DTBOIMG_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt dtbo_a)
+    BOARD_CACHEIMAGE_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt cache)
+    BOARD_BOOTIMAGE_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt boot_a)
+    BOARD_DTBOIMG_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt dtbo_a)
     # Header V3, add vendor_boot
     ifeq ($(BOARD_BUILD_GKI),true)
-        BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt vendor_boot_a)
+        BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter_ab.txt vendor_boot_a)
     endif
     #$(info Calculated BOARD_SYSTEMIMAGE_PARTITION_SIZE=$(BOARD_SYSTEMIMAGE_PARTITION_SIZE) use $(TARGET_DEVICE_DIR)/parameter_ab.txt)
 else

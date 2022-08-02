@@ -8,7 +8,7 @@ CFG_COMPANY=Rockchip
 CFG_EMAIL=gms@rock-chips.com
 # CFG end
 
-TARGET_KEY_PATH=device/rockchip/common/security
+TARGET_KEY_PATH=device/khadas/common/security
 include_array=(media platform shared testkey)
 TMP_KEYSET=.rktmp_keyset_dir
 

@@ -12,4 +12,4 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	android.hardware.tv.cec@1.0-impl \
 	android.hardware.tv.cec@1.0-service
-DEVICE_MANIFEST_FILE += device/rockchip/common/manifests/android.hardware.cec@1.0-service.xml
+DEVICE_MANIFEST_FILE += device/khadas/common/manifests/android.hardware.cec@1.0-service.xml

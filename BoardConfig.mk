@@ -62,10 +62,10 @@ BOARD_TWRP_ENABLE ?= false
 BOARD_ROCKCHIP_THERMAL ?= true
 
 ifeq ($(PRODUCT_FS_COMPRESSION), 1)
-include device/rockchip/common/build/rockchip/F2fsCompression.mk
+include device/khadas/common/build/rockchip/F2fsCompression.mk
 endif
 
-include device/rockchip/common/build/rockchip/Partitions.mk
+include device/khadas/common/build/rockchip/Partitions.mk
 
 # Use the non-open-source parts, if they're present
 ifeq ($(PRODUCT_KERNEL_ARCH), arm)
@@ -77,28 +77,28 @@ BOARD_PREBUILT_DTBIMAGE_DIR ?= $(PRODUCT_KERNEL_PATH)/arch/arm64/boot/dts/rockch
 endif
 
 TARGET_PREBUILT_RESOURCE ?= $(PRODUCT_KERNEL_PATH)/resource.img
-PRODUCT_PARAMETER_TEMPLATE ?= device/rockchip/common/scripts/parameter_tools/parameter.in
+PRODUCT_PARAMETER_TEMPLATE ?= device/khadas/common/scripts/parameter_tools/parameter.in
 TARGET_BOARD_HARDWARE_EGL ?= mali
 
 #Android GO configuration
 BUILD_WITH_GO_OPT ?= false
 
 ifeq ($(BUILD_WITH_GO_OPT), true)
-PRODUCT_FSTAB_TEMPLATE ?= device/rockchip/common/scripts/fstab_tools/fstab_go.in
+PRODUCT_FSTAB_TEMPLATE ?= device/khadas/common/scripts/fstab_tools/fstab_go.in
 else
-PRODUCT_FSTAB_TEMPLATE ?= device/rockchip/common/scripts/fstab_tools/fstab.in
+PRODUCT_FSTAB_TEMPLATE ?= device/khadas/common/scripts/fstab_tools/fstab.in
 endif
 
 # default.prop & build.prop split
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED ?= true
 
-DEVICE_MANIFEST_FILE ?= device/rockchip/common/manifests/manifest_level_$(ROCKCHIP_LUNCHING_API_LEVEL).xml
+DEVICE_MANIFEST_FILE ?= device/khadas/common/manifests/manifest_level_$(ROCKCHIP_LUNCHING_API_LEVEL).xml
 ifeq (1,$(strip $(shell expr $(ROCKCHIP_LUNCHING_API_LEVEL) \>= 31)))
 # Android S deprecate schedulerservice, use ioprio in init.rc
-DEVICE_MATRIX_FILE   ?= device/rockchip/common/manifests/compatibility_matrix_level_31.xml
+DEVICE_MATRIX_FILE   ?= device/khadas/common/manifests/compatibility_matrix_level_31.xml
 else
 # For Android R and older versions.
-DEVICE_MATRIX_FILE   ?= device/rockchip/common/manifests/compatibility_matrix.xml
+DEVICE_MATRIX_FILE   ?= device/khadas/common/manifests/compatibility_matrix.xml
 endif
 
 # GPU configration
@@ -154,13 +154,13 @@ VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 TARGET_BOOTLOADER_BOARD_NAME ?= rk30sdk
 TARGET_NO_BOOTLOADER ?= true
 ifeq ($(filter atv box, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
-DEVICE_PACKAGE_OVERLAYS += device/rockchip/common/overlay
+DEVICE_PACKAGE_OVERLAYS += device/khadas/common/overlay
 ifneq ($(BOARD_HAS_RK_4G_MODEM), true)
-DEVICE_PACKAGE_OVERLAYS += device/rockchip/common/overlay_wifi_only
+DEVICE_PACKAGE_OVERLAYS += device/khadas/common/overlay_wifi_only
 endif
 endif
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/rockchip/common
+TARGET_RELEASETOOLS_EXTENSIONS := device/khadas/common
 
 //MAX-SIZE=512M, for generate out/.../system.img
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -196,7 +196,7 @@ BUILD_WITH_DRMSERVICE :=true
 BOARD_USES_GENERIC_AUDIO ?= true
 
 # Wifi&Bluetooth
-include device/rockchip/common/wifi_bt_common.mk
+include device/khadas/common/wifi_bt_common.mk
 
 #Camera flash
 BOARD_HAVE_FLASH ?= true
@@ -206,7 +206,7 @@ BOARD_SUPPORT_HDMI ?= true
 BOARD_SUPPORT_HDMI_CEC ?= false
 
 # gralloc 4.0
-include device/rockchip/common/gralloc.device.mk
+include device/khadas/common/gralloc.device.mk
 
 
 # google apps
@@ -220,8 +220,8 @@ BUILD_WITH_GOOGLE_FRP ?= true
 #BUILD_NUMBER := $(shell $(DATE) +%H%M%S)
 
 # Configs for lmkd/reclaim service/auto run control/performance/dexmetadata compile...
-ROCKCHIP_OEM_CONFIG_FILE ?= device/rockchip/common/configs/cfg_rockchip_default.xml
-ROCKCHIP_OEM_CONFIG_PACKAGES ?= device/rockchip/common/configs/rockchip_forbid_packages.xml
+ROCKCHIP_OEM_CONFIG_FILE ?= device/khadas/common/configs/cfg_rockchip_default.xml
+ROCKCHIP_OEM_CONFIG_PACKAGES ?= device/khadas/common/configs/rockchip_forbid_packages.xml
 
 # face lock
 BUILD_WITH_FACELOCK ?= false
@@ -339,12 +339,12 @@ PRODUCT_HAVE_DLNA ?= false
 # Zoom out recovery ui of box by two percent.
 #ifneq ($(filter atv box, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
 #    TARGET_RECOVERY_OVERSCAN_PERCENT := 2
-#    TARGET_BASE_PARAMETER_IMAGE ?= device/rockchip/common/baseparameter/baseparameter_fb720.img
+#    TARGET_BASE_PARAMETER_IMAGE ?= device/khadas/common/baseparameter/baseparameter_fb720.img
     # savBaseParameter tool
 #    ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 #        PRODUCT_PACKAGES += saveBaseParameter
 #    endif
-#    DEVICE_FRAMEWORK_MANIFEST_FILE := device/rockchip/common/manifest_framework_override.xml
+#    DEVICE_FRAMEWORK_MANIFEST_FILE := device/khadas/common/manifest_framework_override.xml
 #endif
 
 #enable cpusets sched policy
@@ -379,16 +379,16 @@ BOARD_DEFAULT_CAMERA_HAL_VERSION ?=3.3
 BOARD_WITH_RKTOOLBOX ?=true
 BOARD_MEMTRACK_SUPPORT ?= false
 
-PRODUCT_DEFAULT_DEV_CERTIFICATE := device/rockchip/common/security/testkey
+PRODUCT_DEFAULT_DEV_CERTIFICATE := device/khadas/common/security/testkey
 
 PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
 
 BOARD_BASEPARAMETER_SUPPORT ?= true
 ifeq ($(strip $(BOARD_BASEPARAMETER_SUPPORT)), true)
     ifneq ($(filter rk356x rk3588, $(strip $(TARGET_BOARD_PLATFORM))), )
-        TARGET_BASE_PARAMETER_IMAGE ?= device/rockchip/common/baseparameter/v2.0/baseparameter.img
+        TARGET_BASE_PARAMETER_IMAGE ?= device/khadas/common/baseparameter/v2.0/baseparameter.img
     else
-        TARGET_BASE_PARAMETER_IMAGE ?= device/rockchip/common/baseparameter/v1.0/baseparameter.img
+        TARGET_BASE_PARAMETER_IMAGE ?= device/khadas/common/baseparameter/v1.0/baseparameter.img
     endif
         BOARD_WITH_SPECIAL_PARTITIONS := baseparameter:1M
 endif

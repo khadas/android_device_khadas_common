@@ -38,5 +38,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.tv_input=rockchip
 
 # Add manifest
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += device/rockchip/common/manifests/frameworks/rockchip.hardware.tv.input@1.0-service.xml
-DEVICE_MANIFEST_FILE += device/rockchip/common/manifests/android.hardware.tv.input@1.0-service.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += device/khadas/common/manifests/frameworks/rockchip.hardware.tv.input@1.0-service.xml
+DEVICE_MANIFEST_FILE += device/khadas/common/manifests/android.hardware.tv.input@1.0-service.xml

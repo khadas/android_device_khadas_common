@@ -1,4 +1,4 @@
-CUR_PATH := device/rockchip/common/bootshutdown
+CUR_PATH := device/khadas/common/bootshutdown
 
 HAVE_BOOT_ANIMATION := $(shell test -f $(CUR_PATH)/bootanimation.zip && echo yes)
 HAVE_SHUTDOWN_ANIMATION := $(shell test -f $(CUR_PATH)/shutdownanimation.zip && echo yes)
