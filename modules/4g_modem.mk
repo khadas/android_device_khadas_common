@@ -31,7 +31,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.boot.noril=false \
     ro.telephony.default_network=9
 
-DEVICE_MANIFEST_FILE += device/rockchip/common/4g_modem/manifest.xml
+DEVICE_MANIFEST_FILE += device/khadas/common/4g_modem/manifest.xml
 
 ifeq ($(strip $(TARGET_ARCH)), arm64)
 PRODUCT_PROPERTY_OVERRIDES += \

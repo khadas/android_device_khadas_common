@@ -8,7 +8,7 @@
 
 二、parameter升级操作步骤
 
-1. 拷贝最新的parameter文件到device/rockchip/rk29sdk/parameter/目录下，以parameter名称开头即可，如parameter_sdk。该目录下只能存在一个parameter文件。
+1. 拷贝最新的parameter文件到device/khadas/rk29sdk/parameter/目录下，以parameter名称开头即可，如parameter_sdk。该目录下只能存在一个parameter文件。
 2. make otapackage 编译ota完整包
 3. 拷贝到sd卡或flash根目录下重命名update.zip系统能自动检测到该升级包，能自动完成升级。升级过程中先烧写新的parameter，然后会重启一次，接着继续更新其他部分。
 

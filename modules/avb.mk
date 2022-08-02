@@ -22,7 +22,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml
 
 BOARD_AVB_ALGORITHM ?= SHA256_RSA4096
-BOARD_AVB_KEY_PATH ?= device/rockchip/common/avb_test_keys/testkey_atx_psk.pem
+BOARD_AVB_KEY_PATH ?= device/khadas/common/avb_test_keys/testkey_atx_psk.pem
 
 BOARD_AVB_SYSTEM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
 BOARD_AVB_VENDOR_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
@@ -39,7 +39,7 @@ BOARD_AVB_ODM_DLKM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
 endif
 
 # Only set this when uboot enable security avb.
-# BOARD_AVB_METADATA_BIN_PATH ?= device/rockchip/common/avb_test_keys/atx_metadata.bin
+# BOARD_AVB_METADATA_BIN_PATH ?= device/khadas/common/avb_test_keys/atx_metadata.bin
 
 # Build vbmeta with public_key_metadata
 # when BOARD_AVB_METADATA_BIN_PATH is set

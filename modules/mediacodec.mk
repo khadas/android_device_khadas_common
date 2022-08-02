@@ -37,7 +37,7 @@ PRODUCT_PACKAGES += \
 
 # Vendor OMX seccomp policy files for media components:
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
+    device/khadas/common/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
 
 DEVICE_MANIFEST_FILE += \
-    device/rockchip/common/manifests/android.hardware.media.omx.xml
+    device/khadas/common/manifests/android.hardware.media.omx.xml

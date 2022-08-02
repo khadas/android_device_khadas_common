@@ -35,20 +35,20 @@ BOARD_USES_METADATA_PARTITION ?= true
 USE_DEFAULT_PARAMETER := $(shell test -f $(TARGET_DEVICE_DIR)/parameter.txt && echo true)
 ifeq ($(strip $(USE_DEFAULT_PARAMETER)), true)
   ifeq ($(PRODUCT_USE_DYNAMIC_PARTITIONS), true)
-    BOARD_SUPER_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt super)
+    BOARD_SUPER_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt super)
     BOARD_ROCKCHIP_DYNAMIC_PARTITIONS_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SIZE) - 4194304)
   else
-    BOARD_SYSTEMIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt system)
-    BOARD_VENDORIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt vendor)
-    BOARD_ODMIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt odm)
+    BOARD_SYSTEMIMAGE_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt system)
+    BOARD_VENDORIMAGE_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt vendor)
+    BOARD_ODMIMAGE_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt odm)
   endif
-  BOARD_CACHEIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt cache)
-  BOARD_BOOTIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt boot)
-  BOARD_DTBOIMG_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt dtbo)
-  BOARD_RECOVERYIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt recovery)
+  BOARD_CACHEIMAGE_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt cache)
+  BOARD_BOOTIMAGE_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt boot)
+  BOARD_DTBOIMG_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt dtbo)
+  BOARD_RECOVERYIMAGE_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt recovery)
   # Header V3, add vendor_boot
   ifeq (1,$(strip $(shell expr $(BOARD_BOOT_HEADER_VERSION) \>= 3)))
-    BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt vendor_boot)
+    BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := $(shell python device/khadas/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt vendor_boot)
   endif
   #$(info Calculated BOARD_SYSTEMIMAGE_PARTITION_SIZE=$(BOARD_SYSTEMIMAGE_PARTITION_SIZE) use $(TARGET_DEVICE_DIR)/parameter.txt)
 else

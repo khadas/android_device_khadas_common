@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-ROCKCHIP_ROOT_DIR_PATH := device/rockchip/common/rootdir
+ROCKCHIP_ROOT_DIR_PATH := device/khadas/common/rootdir
 
 PRODUCT_COPY_FILES += \
     $(ROCKCHIP_ROOT_DIR_PATH)/init.rockchip.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rockchip.rc \

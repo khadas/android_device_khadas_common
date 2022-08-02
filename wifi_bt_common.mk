@@ -19,14 +19,14 @@ endif
 ifeq ($(strip $(BOARD_CONNECTIVITY_VENDOR)), Broadcom)
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/rockchip/$(TARGET_BOARD_PLATFORM)/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/khadas/$(TARGET_BOARD_PLATFORM)/bluetooth
 
 ifeq ($(strip $(PRODUCT_BUILD_MODULE)), px5car)
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/rockchip/px5/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/khadas/px5/bluetooth
 endif
 
 ifeq ($(strip $(PRODUCT_BUILD_MODULE)), px3car)
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/rockchip/px3/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/khadas/px3/bluetooth
 endif
 
 ifeq ($(strip $(BOARD_CONNECTIVITY_MODULE)), ap6xxx_gps)
