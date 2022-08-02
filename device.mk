@@ -829,8 +829,6 @@ ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT),box)
 else ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT),atv)
   PRODUCT_PROPERTY_OVERRIDES += \
        ro.com.google.clientidbase=android-rockchip-tv
-  PRODUCT_COPY_FILES += \
-       $(LOCAL_PATH)/bootanimation.zip:/system/media/bootanimation.zip
 
   $(call inherit-product, device/khadas/common/modules/rockchip_apps_box.mk)
 
@@ -854,6 +852,9 @@ DEVICE_PACKAGE_OVERLAYS += device/khadas/common/overlay_brightness
 endif
 endif # tablet without GMS-Express
 endif
+
+PRODUCT_COPY_FILES += \
+   $(LOCAL_PATH)/bootanimation.zip:/system/media/bootanimation.zip
 
 #only box and atv using our audio policy(write by rockchip)
 ifneq ($(filter atv, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
