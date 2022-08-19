@@ -152,6 +152,7 @@
 
 # default hal
 /vendor/bin/hw/android\.hardware\.drm-service\.widevine                 u:object_r:hal_drm_widevine_exec:s0
+/system/bin/preinstall\.sh          u:object_r:shell_exec:s0
 /vendor/bin/hw/android\.hardware\.drm-service-lazy\.widevine            u:object_r:hal_drm_widevine_exec:s0
 /vendor/bin/hw/android\.hardware\.drm-service\.clearkey                 u:object_r:hal_drm_clearkey_exec:s0
 /vendor/bin/hw/android\.hardware\.drm-service-lazy\.clearkey            u:object_r:hal_drm_clearkey_exec:s0
