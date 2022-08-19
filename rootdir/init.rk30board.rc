@@ -269,8 +269,8 @@ on property:ro.boot.noril=true
     stop ril-daemon
 
 # set ro.serialno
-on property:vendor.serialno=*
-    setprop ro.serialno ${vendor.serialno}
+on property:ro.boot.serialno=*
+    setprop vendor.serialno ${ro.boot.serialno}
     restart adbd
 
 on property:vendor.cts_gts.status=true
