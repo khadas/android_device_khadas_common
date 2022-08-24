@@ -78,6 +78,8 @@ ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), atv)
 
 else ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
   $(call inherit-product, device/khadas/common/tv/tv_base.mk)
+else ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), car)
+  $(call inherit-product, device/khadas/common/car/car.mk)
 else ifeq ($(strip $(BUILD_WITH_GO_OPT))|$(strip $(TARGET_ARCH)) ,true|arm)
   # For arm Go tablet.
   $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_no_telephony.mk)
@@ -319,7 +321,7 @@ PRODUCT_PACKAGES += \
     librs_jni \
     libjni_pinyinime
 
-ifeq ($(filter atv box, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
+ifeq ($(filter atv box car, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
 # Sensor HAL
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-service \
@@ -864,11 +866,13 @@ PRODUCT_PACKAGES += \
 
 $(call inherit-product, device/khadas/common/modules/rockchip_apps.mk)
 
+ifneq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), car)
 ifneq ($(BUILD_WITH_GOOGLE_MARKET), true)
 PRODUCT_PACKAGES += \
     InProcessNetworkStack \
     com.android.tethering.inprocess
 endif
+endif # car without InProcessNetworkStack
 endif # tablet without GMS-Express
 endif
 
