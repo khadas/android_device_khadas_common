@@ -15,7 +15,6 @@
 #
 PRODUCT_PACKAGES += \
     RKDeviceTest \
-    Lightning \
     LiveWallpapersPicker \
     RkVideoPlayer \
     RkExplorer \
