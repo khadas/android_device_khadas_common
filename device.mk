@@ -1080,6 +1080,18 @@ ifeq ($(BOARD_MEMTRACK_SUPPORT),true)
 $(call inherit-product, device/khadas/common/modules/memtrack.mk)
 endif
 
+ifeq ($(strip $(BOARD_HDMI_IN_SUPPORT))|$(strip $(BOARD_USES_LIBPQ)) ,true|true)
+    #Build pq and iep lib
+    PRODUCT_PACKAGES += \
+        libpq \
+        libiep
+
+    #no afbc
+    PRODUCT_PROPERTY_OVERRIDES += \
+        vendor.gralloc.no_afbc_for_fb_target_layer=1
+
+endif
+
 PRODUCT_PACKAGES += \
 	libbaseparameter
 
