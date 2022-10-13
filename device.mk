@@ -1102,3 +1102,7 @@ PRODUCT_PACKAGES += \
 	rkaiq_3A_server
 endif
 endif
+
+# neon transform library
+PRODUCT_PACKAGES += \
+	librockchipxxx
