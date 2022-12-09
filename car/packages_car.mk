@@ -96,7 +96,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 # Overlay for Google network and fused location providers
 $(call inherit-product, device/sample/products/location_overlay.mk)
 $(call inherit-product-if-exists, frameworks/webview/chromium/chromium.mk)
-$(call inherit-product, device/rockchip/common/car/packages_car_base.mk)
+$(call inherit-product, device/khadas/common/car/packages_car_base.mk)
 
 # Overrides
 PRODUCT_BRAND := generic

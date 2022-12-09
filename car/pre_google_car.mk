@@ -30,7 +30,7 @@ PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS :=
 # All components inherited here go to system image
 #
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, device/rockchip/common/car/packages_generic_system.mk)
+$(call inherit-product, device/khadas/common/car/packages_generic_system.mk)
 
 #
 # All components inherited here go to system_ext image

@@ -29,7 +29,7 @@ PRODUCT_COPY_FILES += \
 
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), car)
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/car/ueventd.rockchip.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc
+    device/khadas/common/car/ueventd.rockchip.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc
 else
 PRODUCT_COPY_FILES += \
     $(ROCKCHIP_ROOT_DIR_PATH)/ueventd.rockchip.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc

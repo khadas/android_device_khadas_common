@@ -114,7 +114,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_admin.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_admin.xml
 
 # Enable car watchdog
-include device/rockchip/common/car/carwatchdog.mk
+include device/khadas/common/car/carwatchdog.mk
 
 # Enable car power policy
 include packages/services/Car/cpp/powerpolicy/product/carpowerpolicy.mk

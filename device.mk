@@ -343,7 +343,7 @@ $(call inherit-product, device/khadas/common/modules/media_drm.mk)
 $(call inherit-product, device/khadas/common/modules/usb.mk)
 
 # GKI modules
-$(call inherit-product, device/rockchip/common/modules/gki_common.mk)
+$(call inherit-product, device/khadas/common/modules/gki_common.mk)
 
 # Power AIDL
 PRODUCT_PACKAGES += \
@@ -903,8 +903,8 @@ ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.logd.kernel=1
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/zmodem/rz:$(TARGET_COPY_OUT_VENDOR)/bin/rz \
-    device/rockchip/common/zmodem/sz:$(TARGET_COPY_OUT_VENDOR)/bin/sz
+    device/khadas/common/zmodem/rz:$(TARGET_COPY_OUT_VENDOR)/bin/rz \
+    device/khadas/common/zmodem/sz:$(TARGET_COPY_OUT_VENDOR)/bin/sz
 PRODUCT_PACKAGES += io
 endif
 
