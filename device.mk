@@ -242,6 +242,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml
 endif
 
+# GPS HAL
+PRODUCT_PACKAGES += \
+    gps.default \
+    android.hardware.gnss@2.0-impl \
+    android.hardware.gnss@2.0-service
+
 ifeq ($(BOARD_HAS_GPS),true)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml

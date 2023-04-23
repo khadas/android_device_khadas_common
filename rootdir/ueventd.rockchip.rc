@@ -115,6 +115,8 @@
 /dev/vpu-dec    0660    media   graphics
 /dev/mem    0600    media   media
 /dev/ttyBT0 0660    bluetooth   bluetooth
+#gnss
+/dev/ttyACM*    0666    root root
 /dev/ttyGNSS0   0600    gps gps
 /dev/radio0     0660    audio   audio
 /dev/voemcrypto 0660    media	media
