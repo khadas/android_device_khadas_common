@@ -993,3 +993,7 @@ PRODUCT_PACKAGES += \
 	androidx.window.extensions \
 	androidx.window.sidecar
 endif
+
+# Use FUSE passthrough
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.fuse.passthrough.enable=true
