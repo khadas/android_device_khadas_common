@@ -52,4 +52,8 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_HAVE_BLUETOOTH_RTK := true
 BOARD_HAVE_BLUETOOTH_AIC := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/rockchip/$(TARGET_BOARD_PLATFORM)/bluetooth
+
+ifeq ($(strip $(BOARD_HAVE_BLUETOOTH_AIC)), true)
+include hardware/aic/device-aic.mk
+endif
 endif
