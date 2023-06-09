@@ -460,10 +460,10 @@ PRODUCT_CHARACTERISTICS := $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))
 
 ifeq ($(strip $(BOARD_SUPPORT_MULTIAUDIO)), true)
 PRODUCT_PACKAGES += \
-    audio.hdmi.$(TARGET_BOARD_HARDWARE) \
-    audio.hdmi_1.$(TARGET_BOARD_HARDWARE) \
-    audio.spdif.$(TARGET_BOARD_HARDWARE) \
-    audio.spdif_1.$(TARGET_BOARD_HARDWARE)
+    audio.ext_1.$(TARGET_BOARD_HARDWARE) \
+    audio.ext_2.$(TARGET_BOARD_HARDWARE) \
+    audio.ext_3.$(TARGET_BOARD_HARDWARE) \
+    audio.ext_4.$(TARGET_BOARD_HARDWARE)
 endif
 
 # audio lib
