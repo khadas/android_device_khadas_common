@@ -25,9 +25,19 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     Settings \
     SoundRecorder
 
+ifneq ($(filter rk3368 rk3588, $(strip $(TARGET_BOARD_PLATFORM))), )
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.boot-dex2oat-threads=8 \
+    dalvik.vm.dex2oat-threads=8
+else ifneq ($(filter rk3399, $(strip $(TARGET_BOARD_PLATFORM))), )
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.boot-dex2oat-threads=6 \
+    dalvik.vm.dex2oat-threads=6
+else
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.boot-dex2oat-threads=4 \
     dalvik.vm.dex2oat-threads=4
+endif
 
 # Task profile
 PRODUCT_PACKAGES += vendor_cgroups.json
