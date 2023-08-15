@@ -118,3 +118,7 @@ PRODUCT_PACKAGES += \
     rockchip.hardware.hdmi@1.0-service \
     rockchip.hardware.hdmi@1.0-impl
 endif
+ifeq ($(CAMERA_SUPPORT_VIRTUAL),true)
+PRODUCT_COPY_FILES += \
+	device/rockchip/common/1920x1080.yuv:$(TARGET_COPY_OUT_VENDOR)/etc/camera/1920x1080.yuv
+endif
