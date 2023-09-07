@@ -17,7 +17,7 @@
 ifeq ($(BOARD_BUILD_GKI),true)
 PRODUCT_KERNEL_CONFIG := gki_defconfig rockchip_gki.config
 else # Regular build
-PRODUCT_KERNEL_CONFIG := rockchip_defconfig
+PRODUCT_KERNEL_CONFIG := kedge2_defconfig
 ifeq ($(BUILD_WITH_GO_OPT), true)
 PRODUCT_KERNEL_CONFIG += android-13-go.config
 else
