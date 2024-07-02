@@ -30,7 +30,7 @@ BOARD_INIT_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 PRODUCT_BUILD_INIT_BOOT_IMAGE := true
 #BOARD_BUILD_GKI_BOOT_IMAGE_WITHOUT_RAMDISK := true
-DTBO_APPEND_FIX := device/rockchip/$(TARGET_BOARD_PLATFORM)/dtbo_gki_fix.dts
+DTBO_APPEND_FIX := device/khadas/$(TARGET_BOARD_PLATFORM)/dtbo_gki_fix.dts
 
 # Enforce generic ramdisk allow list
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
@@ -71,10 +71,10 @@ $(call inherit-product, mkcombinedroot/modular_kernel.mk)
 PRODUCT_UBOOT_CONFIG += gki.config
 
 #build init.gki.rc
-HAVE_GKI_INIT_RC := $(shell test -f device/rockchip/$(TARGET_BOARD_PLATFORM)/init.gki.rc && echo true)
+HAVE_GKI_INIT_RC := $(shell test -f device/khadas/$(TARGET_BOARD_PLATFORM)/init.gki.rc && echo true)
 ifeq ($(strip $(HAVE_GKI_INIT_RC)), true)
   PRODUCT_COPY_FILES += \
-      device/rockchip/$(TARGET_BOARD_PLATFORM)/init.gki.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.gki.rc
+      device/khadas/$(TARGET_BOARD_PLATFORM)/init.gki.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.gki.rc
 endif
 
 # for Gamma，3D Lut，HDCP

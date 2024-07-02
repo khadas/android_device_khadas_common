@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-RKSDK_PATH=device/rockchip/common
+RKSDK_PATH=device/khadas/common
 
 ifeq ($(strip $(BOARD_SUPPORT_MULTIAUDIO)), true)
     PRODUCT_COPY_FILES += \

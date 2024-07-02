@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-ROCKCHIP_ROOT_DIR_PATH := device/rockchip/common/rootdir
+ROCKCHIP_ROOT_DIR_PATH := device/khadas/common/rootdir
 
 PRODUCT_COPY_FILES += \
     $(ROCKCHIP_ROOT_DIR_PATH)/init.rockchip.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rockchip.rc \
@@ -28,7 +28,7 @@ PRODUCT_COPY_FILES += \
 
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), car)
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/car/ueventd.car.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.car.rc
+    device/khadas/common/car/ueventd.car.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.car.rc
 endif
 
 PRODUCT_COPY_FILES += \

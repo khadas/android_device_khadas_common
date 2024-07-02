@@ -15,22 +15,22 @@
 #
 PRODUCT_SEPOLICY_SPLIT := true
 BOARD_SEPOLICY_DIRS := \
-    device/rockchip/common/sepolicy/vendor \
-    device/rockchip/$(TARGET_BOARD_PLATFORM)/sepolicy_vendor
+    device/khadas/common/sepolicy/vendor \
+    device/khadas/$(TARGET_BOARD_PLATFORM)/sepolicy_vendor
 
-#SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS ?= device/rockchip/common/sepolicy/public
+#SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS ?= device/khadas/common/sepolicy/public
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS ?= \
-    device/rockchip/common/sepolicy/private \
-    device/rockchip/$(TARGET_BOARD_PLATFORM)/sepolicy
+    device/khadas/common/sepolicy/private \
+    device/khadas/$(TARGET_BOARD_PLATFORM)/sepolicy
 
 ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT),box)
     BOARD_SEPOLICY_DIRS += \
-        device/rockchip/common/box/sepolicy/vendor
+        device/khadas/common/box/sepolicy/vendor
 endif
 
 ifeq (true, $(ENABLE_EVS_SERVICE))
 ifeq (true, $(filter true, $(ENABLE_EVS_SAMPLE) $(SOONG_CONFIG_rvcam_has_evs)))
     BOARD_SEPOLICY_DIRS += \
-        device/rockchip/common/sepolicy/car/evs
+        device/khadas/common/sepolicy/car/evs
 endif
 endif

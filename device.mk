@@ -40,7 +40,7 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.rksdk.version=ANDROID$(PLATFORM_VERSION)_RKR4
 
-TARGET_SYSTEM_PROP += device/rockchip/common/build/rockchip/rksdk.prop
+TARGET_SYSTEM_PROP += device/khadas/common/build/rockchip/rksdk.prop
 
 # Set system properties identifying the chipset
 PRODUCT_VENDOR_PROPERTIES += ro.soc.manufacturer=Rockchip
@@ -53,15 +53,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vndservicemanager
 
-$(call inherit-product, device/rockchip/common/modules/audio.mk)
+$(call inherit-product, device/khadas/common/modules/audio.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Prebuild apps
-$(call inherit-product, device/rockchip/common/modules/preinstall.mk)
-$(call inherit-product, device/rockchip/common/modules/optimize.mk)
-$(call inherit-product, device/rockchip/common/modules/build_dm.mk)
+$(call inherit-product, device/khadas/common/modules/preinstall.mk)
+$(call inherit-product, device/khadas/common/modules/optimize.mk)
+$(call inherit-product, device/khadas/common/modules/build_dm.mk)
 
 # HWC/Gralloc
-$(call inherit-product, device/rockchip/common/modules/graphics.mk)
+$(call inherit-product, device/khadas/common/modules/graphics.mk)
 
 # Inherit product config
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), atv)
@@ -72,9 +72,9 @@ ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), atv)
                       ATVContentProvider \
 
 else ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
-  $(call inherit-product, device/rockchip/common/tv/tv_base.mk)
+  $(call inherit-product, device/khadas/common/tv/tv_base.mk)
 else ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), car)
-  $(call inherit-product, device/rockchip/common/car/car.mk)
+  $(call inherit-product, device/khadas/common/car/car.mk)
 else ifeq ($(strip $(BUILD_WITH_GO_OPT))|$(strip $(TARGET_ARCH)) ,true|arm)
   # For arm Go tablet.
   $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_no_telephony.mk)
@@ -92,36 +92,36 @@ else
 endif
 
 # PCBA tools
-$(call inherit-product, device/rockchip/common/modules/pcba.mk)
+$(call inherit-product, device/khadas/common/modules/pcba.mk)
 # Optee
-$(call inherit-product, device/rockchip/common/modules/optee.mk)
+$(call inherit-product, device/khadas/common/modules/optee.mk)
 # Check optee
 $(call inherit-product, hardware/rockchip/keymaster4/wait_for_tee/wait_for_tee.mk)
 # Sepolicy
-$(call inherit-product, device/rockchip/common/modules/android_sepolicy.mk)
+$(call inherit-product, device/khadas/common/modules/android_sepolicy.mk)
 # TWRP
-$(call inherit-product, device/rockchip/common/modules/twrp.mk)
+$(call inherit-product, device/khadas/common/modules/twrp.mk)
 # GMS
-$(call inherit-product, device/rockchip/common/modules/gms.mk)
+$(call inherit-product, device/khadas/common/modules/gms.mk)
 # Media OMX/C2
-$(call inherit-product, device/rockchip/common/modules/mediacodec.mk)
+$(call inherit-product, device/khadas/common/modules/mediacodec.mk)
 # Android Go configuration
-$(call inherit-product, device/rockchip/common/modules/android_go.mk)
+$(call inherit-product, device/khadas/common/modules/android_go.mk)
 # Android Verified Boot
-$(call inherit-product, device/rockchip/common/modules/avb.mk)
+$(call inherit-product, device/khadas/common/modules/avb.mk)
 # init.rc files
-$(call inherit-product, device/rockchip/common/rootdir/rootdir.mk)
+$(call inherit-product, device/khadas/common/rootdir/rootdir.mk)
 # swap fstab files
-$(call inherit-product, device/rockchip/common/rootdir/swap/swap.mk)
+$(call inherit-product, device/khadas/common/rootdir/swap/swap.mk)
 ifeq ($(strip $(BOARD_HDMI_IN_SUPPORT)), true)
-    $(call inherit-product, device/rockchip/common/modules/hdmi_in.mk)
+    $(call inherit-product, device/khadas/common/modules/hdmi_in.mk)
 endif
 
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/rk29-keypad.kl:system/usr/keylayout/rk29-keypad.kl \
-    device/rockchip/common/ff680030_pwm.kl:system/usr/keylayout/ff680030_pwm.kl \
-    device/rockchip/common/alarm_filter.xml:system/etc/alarm_filter.xml \
-    device/rockchip/common/ff420030_pwm.kl:system/usr/keylayout/ff420030_pwm.kl
+    device/khadas/common/rk29-keypad.kl:system/usr/keylayout/rk29-keypad.kl \
+    device/khadas/common/ff680030_pwm.kl:system/usr/keylayout/ff680030_pwm.kl \
+    device/khadas/common/alarm_filter.xml:system/etc/alarm_filter.xml \
+    device/khadas/common/ff420030_pwm.kl:system/usr/keylayout/ff420030_pwm.kl
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wpa_config.txt:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_config.txt \
@@ -172,7 +172,7 @@ endif
 ifndef PRODUCT_FSTAB_TEMPLATE
 $(warning Please add fstab.in with PRODUCT_FSTAB_TEMPLATE in your product.mk)
 # To use fstab auto generator, define fstab.in in your product.mk,
-# Then include the device/rockchip/common/build/rockchip/RebuildFstab.mk in your AndroidBoard.mk
+# Then include the device/khadas/common/build/rockchip/RebuildFstab.mk in your AndroidBoard.mk
 PRODUCT_COPY_FILES += \
     $(TARGET_DEVICE_DIR)/fstab.rk30board:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(TARGET_BOARD_HARDWARE) \
     $(TARGET_DEVICE_DIR)/fstab.rk30board:$(TARGET_COPY_OUT_RAMDISK)/fstab.$(TARGET_BOARD_HARDWARE)
@@ -197,7 +197,7 @@ PRODUCT_COPY_FILES += \
 endif
 
 # Bluetooth
-$(call inherit-product, device/rockchip/common/modules/bluetooth.mk)
+$(call inherit-product, device/khadas/common/modules/bluetooth.mk)
 
 ifeq ($(BOARD_WIFI_SUPPORT),true)
 PRODUCT_COPY_FILES += \
@@ -254,35 +254,35 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(filter atv, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
 # Include sensor module for tablet
-$(call inherit-product, device/rockchip/common/modules/sensors.mk)
+$(call inherit-product, device/khadas/common/modules/sensors.mk)
 endif
 
 # Include thermal HAL module
-$(call inherit-product, device/rockchip/common/modules/thermal.mk)
+$(call inherit-product, device/khadas/common/modules/thermal.mk)
 
 # include vibrator AIDL module
-$(call inherit-product, device/rockchip/common/modules/vibrator.mk)
+$(call inherit-product, device/khadas/common/modules/vibrator.mk)
 
 # Media DRM
-$(call inherit-product, device/rockchip/common/modules/media_drm.mk)
+$(call inherit-product, device/khadas/common/modules/media_drm.mk)
 
 # Usb controller detector for GKI
-$(call inherit-product, device/rockchip/common/modules/usb.mk)
+$(call inherit-product, device/khadas/common/modules/usb.mk)
 
 # GKI modules
-$(call inherit-product, device/rockchip/common/modules/gki_common.mk)
+$(call inherit-product, device/khadas/common/modules/gki_common.mk)
 
 # kernel configurations
-$(call inherit-product, device/rockchip/common/modules/kernel_config.mk)
+$(call inherit-product, device/khadas/common/modules/kernel_config.mk)
 
 # make boot/vendor_boot
-$(call inherit-product, device/rockchip/common/modules/make_boot.mk)
+$(call inherit-product, device/khadas/common/modules/make_boot.mk)
 
 # recovery
-$(call inherit-product, device/rockchip/common/modules/recovery.mk)
+$(call inherit-product, device/khadas/common/modules/recovery.mk)
 
 # rknn modules
-$(call inherit-product, device/rockchip/common/modules/rknn.mk)
+$(call inherit-product, device/khadas/common/modules/rknn.mk)
 
 # Power AIDL
 PRODUCT_PACKAGES += \
@@ -326,7 +326,7 @@ PRODUCT_PACKAGES += \
 endif
 
 # Health/Battery & Charger
-$(call inherit-product, device/rockchip/common/modules/health.mk)
+$(call inherit-product, device/khadas/common/modules/health.mk)
 
 # Add board.platform default property to parsing related rc
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -495,10 +495,10 @@ endif
 
 
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
-    #include device/rockchip/common/samba/rk31_samba.mk
+    #include device/khadas/common/samba/rk31_samba.mk
     PRODUCT_COPY_FILES += \
       $(LOCAL_PATH)/init.box.samba.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.box.samba.rc \
-      device/rockchip/common/cifsmanager.sh:system/bin/cifsmanager.sh
+      device/khadas/common/cifsmanager.sh:system/bin/cifsmanager.sh
 
     PRODUCT_PROPERTY_OVERRIDES += \
       ro.rk.screenoff_time=2147483647
@@ -540,7 +540,7 @@ endif
 endif
 #hdmi cec
 ifeq ($(BOARD_SUPPORT_HDMI_CEC),true)
-  $(call inherit-product, device/rockchip/common/modules/hdmi_cec.mk)
+  $(call inherit-product, device/khadas/common/modules/hdmi_cec.mk)
 endif
 
 ifeq ($(strip $(BOARD_SHOW_HDMI_SETTING)), true)
@@ -561,7 +561,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += hw_output.default
 
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/permissions/rockchip.software.display.xml:system/etc/permissions/rockchip.software.display.xml
+    device/khadas/common/permissions/rockchip.software.display.xml:system/etc/permissions/rockchip.software.display.xml
 endif
 
 PRODUCT_PACKAGES += \
@@ -569,7 +569,7 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), vr)
 PRODUCT_COPY_FILES += \
-       device/rockchip/common/lowmem_package_filter.xml:system/etc/lowmem_package_filter.xml
+       device/khadas/common/lowmem_package_filter.xml:system/etc/lowmem_package_filter.xml
 endif
 
 #if force app can see udisk
@@ -586,7 +586,7 @@ endif
 
 #boot and shutdown animation, ringing
 ifeq ($(strip $(BOOT_SHUTDOWN_ANIMATION_RINGING)),true)
-include device/rockchip/common/bootshutdown/bootshutdown.mk
+include device/khadas/common/bootshutdown/bootshutdown.mk
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.shutdown_anim.orien=0
 endif
@@ -594,7 +594,7 @@ endif
 
 #boot video enable
 ifeq ($(strip $(BOOT_VIDEO_ENABLE)),true)
-include device/rockchip/common/bootvideo/bootvideo.mk
+include device/khadas/common/bootvideo/bootvideo.mk
 endif
 
 ifeq ($(strip $(BOARD_ENABLE_PMS_MULTI_THREAD_SCAN)), true)
@@ -646,9 +646,9 @@ PRODUCT_PACKAGES += \
 
 #######for target product ########
 ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT),box)
-  DEVICE_PACKAGE_OVERLAYS += device/rockchip/common/overlay_screenoff
+  DEVICE_PACKAGE_OVERLAYS += device/khadas/common/overlay_screenoff
 
-  $(call inherit-product, device/rockchip/common/modules/rockchip_apps_box.mk)
+  $(call inherit-product, device/khadas/common/modules/rockchip_apps_box.mk)
 
 else ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT),atv)
   PRODUCT_PROPERTY_OVERRIDES += \
@@ -656,7 +656,7 @@ else ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT),atv)
   PRODUCT_COPY_FILES += \
        $(LOCAL_PATH)/bootanimation.zip:/system/media/bootanimation.zip
 
-  $(call inherit-product, device/rockchip/common/modules/rockchip_apps_box.mk)
+  $(call inherit-product, device/khadas/common/modules/rockchip_apps_box.mk)
 
 else # tablet
   PRODUCT_PACKAGES += \
@@ -666,10 +666,10 @@ PRODUCT_PACKAGES += \
     Music \
     WallpaperPicker
 
-$(call inherit-product, device/rockchip/common/modules/rockchip_apps.mk)
+$(call inherit-product, device/khadas/common/modules/rockchip_apps.mk)
 
 # Setup brightness for AOSP devices
-DEVICE_PACKAGE_OVERLAYS += device/rockchip/common/overlay_brightness
+DEVICE_PACKAGE_OVERLAYS += device/khadas/common/overlay_brightness
 endif
 endif # tablet without GMS-Express
 
@@ -700,17 +700,17 @@ PRODUCT_PACKAGES += libstdc++.vendor
 
 #Build with UiMode Config
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/uimode/package_uimode_config.xml:vendor/etc/package_uimode_config.xml
+    device/khadas/common/uimode/package_uimode_config.xml:vendor/etc/package_uimode_config.xml
 
 # Zoom out recovery ui of box by two percent.
 ifneq ($(filter atv box, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
     TARGET_RECOVERY_OVERSCAN_PERCENT := 2
-    TARGET_BASE_PARAMETER_IMAGE ?= device/rockchip/common/baseparameter/baseparameter.img
+    TARGET_BASE_PARAMETER_IMAGE ?= device/khadas/common/baseparameter/baseparameter.img
     # savBaseParameter tool
     ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
         #PRODUCT_PACKAGES += saveBaseParameter
     endif
-    DEVICE_FRAMEWORK_MANIFEST_FILE := device/rockchip/common/manifest_framework_override.xml
+    DEVICE_FRAMEWORK_MANIFEST_FILE := device/khadas/common/manifest_framework_override.xml
 endif
 
 # add AudioSetting
@@ -739,36 +739,36 @@ else
         ro.flash_img.enable = false
 endif
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/flash_img/flash_img.sh:vendor/bin/flash_img.sh
+    device/khadas/common/flash_img/flash_img.sh:vendor/bin/flash_img.sh
 
 #read pcie info for Devicetest APK
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/pcie/read_pcie_info.sh:vendor/bin/read_pcie_info.sh
+    device/khadas/common/pcie/read_pcie_info.sh:vendor/bin/read_pcie_info.sh
 
 BOARD_TV_LOW_MEMOPT ?= false
 ifeq ($(strip $(BOARD_TV_LOW_MEMOPT)), true)
-    include device/rockchip/common/tv/tv_low_ram_device.mk
+    include device/khadas/common/tv/tv_low_ram_device.mk
 endif
 
 # Camera support
 ifeq ($(BOARD_CAMERA_SUPPORT),true)
 ifeq ($(BOARD_CAMERA_AIDL),true)
-$(call inherit-product, device/rockchip/common/modules/camera_aidl.mk)
+$(call inherit-product, device/khadas/common/modules/camera_aidl.mk)
 else
-$(call inherit-product, device/rockchip/common/modules/camera.mk)
+$(call inherit-product, device/khadas/common/modules/camera.mk)
 endif
 endif
 
 ifeq ($(BOARD_ROCKCHIP_PKVM), true)
 # pKVM
-$(call inherit-product, device/rockchip/common/modules/pkvm.mk)
+$(call inherit-product, device/khadas/common/modules/pkvm.mk)
 endif
 
 # Rockchip HALs
-$(call inherit-product, device/rockchip/common/manifests/frameworks/vintf.mk)
+$(call inherit-product, device/khadas/common/manifests/frameworks/vintf.mk)
 
 ifeq ($(BOARD_MEMTRACK_SUPPORT),true)
-$(call inherit-product, device/rockchip/common/modules/memtrack.mk)
+$(call inherit-product, device/khadas/common/modules/memtrack.mk)
 endif
 
 ifneq (,$(filter true, $(strip $(BOARD_HDMI_IN_SUPPORT)) $(strip $(BOARD_USES_LIBPQ)))))
@@ -849,6 +849,6 @@ ifneq (,$(filter true, $(strip $(BOARD_USES_LIBSVEP_SR)) $(strip $(BOARD_USES_LI
 endif
 # Biometrics face
 ifeq ($(strip $(BOARD_BIOMETRICS_FACE)), true)
-$(call inherit-product, device/rockchip/common/modules/biometrics.mk)
+$(call inherit-product, device/khadas/common/modules/biometrics.mk)
 endif
 

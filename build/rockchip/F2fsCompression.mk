@@ -20,11 +20,11 @@ PRODUCT_FS_COMPRESSION := 1
 #BOARD_SYSTEMIMAGE_FILE_SYSTEM_COMPRESS := true
 #BOARD_SYSTEMIMAGE_F2FS_SLOAD_COMPRESS_FLAGS := -r -L 4
 
-TARGET_RECOVERY_FSTAB := device/rockchip/common/scripts/fstab_tools/recovery_compression.fstab
-PRODUCT_FSTAB_TEMPLATE := device/rockchip/common/scripts/fstab_tools/fstab_compression.in
+TARGET_RECOVERY_FSTAB := device/khadas/common/scripts/fstab_tools/recovery_compression.fstab
+PRODUCT_FSTAB_TEMPLATE := device/khadas/common/scripts/fstab_tools/fstab_compression.in
 #BOARD_USERDATAIMAGE_PARTITION_SIZE := 8589934592
 #BOARD_USERDATAIMAGE_PARTITION_SIZE := 26145193984
-#PRODUCT_FSTAB_TEMPLATE := device/rockchip/rk356x/rk3566_s/fstab_userdata.in
+#PRODUCT_FSTAB_TEMPLATE := device/khadas/rk356x/rk3566_s/fstab_userdata.in
 PRODUCT_KERNEL_CONFIG += f2fs_compression.config
 # Tracking flags for f2fs compressed
 PRODUCT_COPY_FILES += \

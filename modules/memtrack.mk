@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_MANIFEST_FILE += device/rockchip/common/manifests/android.hardware.memtrack@1.0-service.xml
+DEVICE_MANIFEST_FILE += device/khadas/common/manifests/android.hardware.memtrack@1.0-service.xml
 PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     android.hardware.memtrack@1.0-impl \

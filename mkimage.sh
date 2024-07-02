@@ -34,7 +34,7 @@ mkdir -p $IMAGE_PATH
 FSTYPE=ext4
 echo system filesysystem is $FSTYPE
 
-BOARD_CONFIG=device/rockchip/common/device.mk
+BOARD_CONFIG=device/khadas/common/device.mk
 
 PARAMETER=${TARGET_DEVICE_DIR}/parameter.txt
 
@@ -42,14 +42,14 @@ if [ "$BUILD_GKI" = "true" ]; then
 	if [ -f ${TARGET_DEVICE_DIR}/config_gki.cfg ]; then
 		FLASH_CONFIG_FILE=${TARGET_DEVICE_DIR}/config_gki.cfg
 	else
-		FLASH_CONFIG_FILE=device/rockchip/common/build/rockchip/config_gki.cfg
+		FLASH_CONFIG_FILE=device/khadas/common/build/rockchip/config_gki.cfg
 	fi
 
 else
 	if [ -f ${TARGET_DEVICE_DIR}/config.cfg ]; then
 		FLASH_CONFIG_FILE=${TARGET_DEVICE_DIR}/config.cfg
 	else
-		FLASH_CONFIG_FILE=device/rockchip/common/build/rockchip/config.cfg
+		FLASH_CONFIG_FILE=device/khadas/common/build/rockchip/config.cfg
 	fi
 fi
 
@@ -123,7 +123,7 @@ if [ "$BOARD_AVB_ENABLE" = "true" ]; then
 cp -a $OUT/vbmeta.img $IMAGE_PATH/vbmeta.img
 else
 echo "BOARD_AVB_ENABLE is false, use default vbmeta.img"
-cp -a device/rockchip/common/vbmeta.img $IMAGE_PATH/vbmeta.img
+cp -a device/khadas/common/vbmeta.img $IMAGE_PATH/vbmeta.img
 fi
 
 echo -n "create misc.img.... "

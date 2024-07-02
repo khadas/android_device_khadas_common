@@ -21,7 +21,7 @@
 # CarServiceHelperService accesses the hidden api in the system server.
 SYSTEM_OPTIMIZE_JAVA := false
 
-DEVICE_FRAMEWORK_MANIFEST_FILE += device/rockchip/common/car/manifest.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE += device/khadas/common/car/manifest.xml
 
 # generic_system.mk sets 'PRODUCT_ENFORCE_RRO_TARGETS := *'
 # but this breaks phone_car. So undo it here.
@@ -39,7 +39,7 @@ GOOGLE_CAR_SERVICE_OVERLAY += CarServiceOverlayPhoneCarGoogle
 ifneq ($(DEVICE_IS_64BIT_ONLY),true)
     $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 endif
-$(call inherit-product, device/rockchip/common/car/packages_generic_system.mk)
+$(call inherit-product, device/khadas/common/car/packages_generic_system.mk)
 
 #
 # All components inherited here go to system_ext image
@@ -62,7 +62,7 @@ PRODUCT_PACKAGES += \
 endif
 
 # Additional selinux policy
-BOARD_SEPOLICY_DIRS += device/rockchip/common/car/sepolicy
+BOARD_SEPOLICY_DIRS += device/khadas/common/car/sepolicy
 
 # Car init.rc
 PRODUCT_COPY_FILES += \

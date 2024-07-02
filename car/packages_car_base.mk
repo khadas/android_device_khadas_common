@@ -16,8 +16,8 @@
 
 # Base platform for car builds
 # car packages should be added to car.mk instead of here
-DEVICE_PACKAGE_OVERLAYS += device/rockchip/common/car/overlay
-DEVICE_PACKAGE_OVERLAYS += device/rockchip/common/overlay
+DEVICE_PACKAGE_OVERLAYS += device/khadas/common/car/overlay
+DEVICE_PACKAGE_OVERLAYS += device/khadas/common/overlay
 
 ifeq ($(DISABLE_CAR_PRODUCT_CONFIG_OVERLAY),)
 DEVICE_PACKAGE_OVERLAYS += packages/services/Car/car_product/overlay
@@ -128,7 +128,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_admin.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_admin.xml
 
 # Enable car watchdog
-include device/rockchip/common/car/carwatchdog.mk
+include device/khadas/common/car/carwatchdog.mk
 
 # Enable car power policy
 include packages/services/Car/cpp/powerpolicy/product/carpowerpolicy.mk

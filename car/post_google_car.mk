@@ -30,7 +30,7 @@ PRODUCT_PACKAGES_DEBUG += \
     android.hardware.automotive.occupant_awareness@1.0-service \
     android.hardware.automotive.occupant_awareness@1.0-service_mock
 
-BOARD_SEPOLICY_DIRS += device/rockchip/common/car/sepolicy
+BOARD_SEPOLICY_DIRS += device/khadas/common/car/sepolicy
 
 # Sepolicy for occupant awareness system
 include packages/services/Car/car_product/occupant_awareness/OccupantAwareness.mk
@@ -39,7 +39,7 @@ include packages/services/Car/car_product/occupant_awareness/OccupantAwareness.m
 include packages/services/Car/cpp/computepipe/products/computepipe.mk
 
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/car/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
+    device/khadas/common/car/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.boot.wificountrycode=00 \

@@ -17,7 +17,7 @@
 ifeq ($(BOARD_RKNN_SUPPORT),true)
 
 BOARD_SEPOLICY_DIRS += \
-    device/rockchip/common/sepolicy/rknn \
+    device/khadas/common/sepolicy/rknn \
     vendor/rockchip/hardware/interfaces/neuralnetworks/1.0/default/sepolicy
 
 PRODUCT_PACKAGES += \
