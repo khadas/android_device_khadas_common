@@ -200,7 +200,7 @@ BOARD_HAVE_FLASH ?= true
 
 #HDMI support
 BOARD_SUPPORT_HDMI ?= true
-BOARD_SUPPORT_HDMI_CEC ?= false
+BOARD_SUPPORT_HDMI_CEC ?= true
 # Address  Device
 # 0        TV
 # 1        Recording Device 1
