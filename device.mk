@@ -653,8 +653,6 @@ ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT),box)
 else ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT),atv)
   PRODUCT_PROPERTY_OVERRIDES += \
        ro.com.google.clientidbase=android-rockchip-tv
-  PRODUCT_COPY_FILES += \
-       $(LOCAL_PATH)/bootanimation.zip:/system/media/bootanimation.zip
 
   $(call inherit-product, device/khadas/common/modules/rockchip_apps_box.mk)
 
@@ -672,6 +670,9 @@ $(call inherit-product, device/khadas/common/modules/rockchip_apps.mk)
 DEVICE_PACKAGE_OVERLAYS += device/khadas/common/overlay_brightness
 endif
 endif # tablet without GMS-Express
+
+PRODUCT_COPY_FILES += \
+   $(LOCAL_PATH)/bootanimation.zip:/system/media/bootanimation.zip
 
 # By default, enable zram; experiment can toggle the flag,
 # which takes effect on boot
