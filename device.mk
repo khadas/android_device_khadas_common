@@ -674,6 +674,12 @@ endif # tablet without GMS-Express
 PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/bootanimation.zip:/system/media/bootanimation.zip
 
+BUILD_WITH_GAPPS_CONFIG :=false
+ifeq ($(BUILD_WITH_GAPPS_CONFIG),true)
+PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
+$(call inherit-product-if-exists, vendor/rockchip/google/gapps.mk)
+endif
+
 # By default, enable zram; experiment can toggle the flag,
 # which takes effect on boot
 PRODUCT_PROPERTY_OVERRIDES += \
