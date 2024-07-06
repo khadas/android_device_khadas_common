@@ -17,7 +17,7 @@
 ifeq ($(BOARD_BUILD_GKI),true)
 PRODUCT_KERNEL_CONFIG := gki_defconfig rockchip_gki.config
 else # Regular build
-PRODUCT_KERNEL_CONFIG := rockchip_defconfig android-14.config
+PRODUCT_KERNEL_CONFIG := kedge2_defconfig android-14.config
 ifeq ($(TARGET_BUILD_VARIANT), user)
 PRODUCT_KERNEL_CONFIG += non_debuggable.config
 endif
