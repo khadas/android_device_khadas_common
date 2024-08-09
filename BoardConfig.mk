@@ -219,7 +219,7 @@ BOARD_SUPPORT_HDMI_CEC ?= true
 # 14       Specific Use
 # 15       Unregistered (as Initiator address)
 #          Broadcast (as Destination address)
-BOARD_HDMI_CEC_TYPE ?= 4
+BOARD_HDMI_CEC_TYPE ?= 0
 
 # gralloc 4.0
 include device/khadas/common/gralloc.device.mk
