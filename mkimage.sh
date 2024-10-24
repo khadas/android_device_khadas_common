@@ -156,6 +156,14 @@ else
         echo "$UBOOT_PATH/trust.img not fount! Please make it from $UBOOT_PATH first!"
 fi
 
+if [ -f $OUT/custom.img ]
+then
+    echo "create custom.img..."
+    cp -a $OUT/custom.img $IMAGE_PATH/custom.img
+else
+    echo "$OUT/custom.img not fount! Please make it from custom_img first!"
+fi
+
 if [ "$HIGH_RELIABLE_RECOVERY_OTA" = "true" ]; then
 	if [ -f $UBOOT_PATH/uboot_ro.img ]
 	then
