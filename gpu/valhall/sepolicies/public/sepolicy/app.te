@@ -1,0 +1,17 @@
+#----------------------------------------------------------------------------
+# The proprietary software and information contained in this file is
+# confidential and may only be used by an authorized person under a valid
+# licensing agreement from Arm Limited or its affiliates.
+#
+# Copyright (C) 2023. Arm Limited or its affiliates. All rights reserved.
+#
+# This entire notice must be reproduced on all copies of this file and
+# copies of this file may only be made by an authorized person under a valid
+# licensing agreement from Arm Limited or its affiliates.
+#---------------------------------------------------------------------------
+
+# Permissions required for RenderScript driver execution
+allow appdomain same_process_hal_file:file { read execute_no_trans };
+
+# Grant shell applicaton permissions to use gpu profiling files
+allow shell gpu_profiling_file:file { read open getattr map execute };
