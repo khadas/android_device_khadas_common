@@ -1,0 +1,40 @@
+#----------------------------------------------------------------------------
+# The proprietary software and information contained in this file is
+# confidential and may only be used by an authorized person under a valid
+# licensing agreement from Arm Limited or its affiliates.
+#
+# Copyright (C) 2023. Arm Limited or its affiliates. All rights reserved.
+#
+# This entire notice must be reproduced on all copies of this file and
+# copies of this file may only be made by an authorized person under a valid
+# licensing agreement from Arm Limited or its affiliates.
+#---------------------------------------------------------------------------
+
+# Access to the GPU device
+/dev/mali0                u:object_r:gpu_device:s0
+
+# Device accessed by drm_hwcomposer and used by the Mali DDK tests, i.e. for pixel checks in TPI
+/dev/dri/card0            u:object_r:gpu_device:s0
+
+# Gralloc 4 etc.
+/vendor/lib(64)?/hw/android.hardware.graphics.mapper@4.0-impl-arm.so u:object_r:same_process_hal_file:s0
+
+# Mali Renderscript driver
+/vendor/lib(64)?/libRSDriverArm\.so u:object_r:same_process_hal_file:s0
+/vendor/lib64/libbccArm\.so u:object_r:same_process_hal_file:s0
+/vendor/lib64/libbcc_mali\.so u:object_r:same_process_hal_file:s0
+/vendor/lib64/libLLVM_android_mali\.so u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libclcore\.bc u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libmalicore\.bc u:object_r:same_process_hal_file:s0
+/vendor/lib/libclcore_neon\.bc u:object_r:same_process_hal_file:s0
+/vendor/bin/bcc_mali u:object_r:same_process_hal_file:s0
+
+# libOpenCL.so: This library is included in production devices and loaded by apps via dlopen
+/vendor/lib(64)?/libOpenCL.so u:object_r:same_process_hal_file:s0
+
+# Mali runtime configuration
+/vendor/etc/mali_platform.config u:object_r:same_process_hal_file:s0
+/vendor/etc/mali_debug.config u:object_r:same_process_hal_file:s0
+
+# GPU profiling
+/vendor/lib(64)?/libgpudataproducer.so u:object_r:gpu_profiling_file:s0

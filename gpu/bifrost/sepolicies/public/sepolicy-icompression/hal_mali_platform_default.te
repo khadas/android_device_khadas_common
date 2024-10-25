@@ -1,0 +1,18 @@
+#----------------------------------------------------------------------------
+# The proprietary software and information contained in this file is
+# confidential and may only be used by an authorized person under a valid
+# licensing agreement from Arm Limited or its affiliates.
+#
+# Copyright (C) 2023. Arm Limited or its affiliates. All rights reserved.
+#
+# This entire notice must be reproduced on all copies of this file and
+# copies of this file may only be made by an authorized person under a valid
+# licensing agreement from Arm Limited or its affiliates.
+#---------------------------------------------------------------------------
+
+type hal_mali_platform_default, domain;
+type hal_mali_platform_default_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_mali_platform_default);
+
+binder_use(hal_mali_platform_default);
+binder_service(hal_mali_platform_default);

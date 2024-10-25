@@ -1,0 +1,77 @@
+#----------------------------------------------------------------------------
+# The proprietary software and information contained in this file is
+# confidential and may only be used by an authorized person under a valid
+# licensing agreement from Arm Limited or its affiliates.
+#
+# Copyright (C) 2023. Arm Limited or its affiliates. All rights reserved.
+#
+# This entire notice must be reproduced on all copies of this file and
+# copies of this file may only be made by an authorized person under a valid
+# licensing agreement from Arm Limited or its affiliates.
+#---------------------------------------------------------------------------
+
+# EGL config properties
+#
+# The Mali™ DDK reads these properties to determine which EGLConfig configuration to enable and how to initialize some
+# of their attributes.
+#
+# r8_g8_b8_a8_32bit_fixed
+ro.vendor.arm.egl.configs.r8_g8_b8_a8_32bit_fixed.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.r8_g8_b8_a8_32bit_fixed.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.r8_g8_b8_a8_32bit_fixed.framebuffer_target u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+# r8_g8_b8_a0_32bit_fixed
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_32bit_fixed.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_32bit_fixed.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_32bit_fixed.framebuffer_target u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+# r8_g8_b8_a0_24bit_fixed
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_24bit_fixed.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_24bit_fixed.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_24bit_fixed.framebuffer_target u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+# r5_g6_b5_a0_16bit_fixed
+ro.vendor.arm.egl.configs.r5_g6_b5_a0_16bit_fixed.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.r5_g6_b5_a0_16bit_fixed.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.r5_g6_b5_a0_16bit_fixed.framebuffer_target u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+# r10_g10_b10_a2_32bit_fixed
+ro.vendor.arm.egl.configs.r10_g10_b10_a2_32bit_fixed.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.r10_g10_b10_a2_32bit_fixed.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.r10_g10_b10_a2_32bit_fixed.framebuffer_target u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+# r16_g16_b16_a16_64bit_float
+ro.vendor.arm.egl.configs.r16_g16_b16_a16_64bit_float.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.r16_g16_b16_a16_64bit_float.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.r16_g16_b16_a16_64bit_float.framebuffer_target u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+# r8_g8_b8_a0_24bit_yuv_special (implicitly recordable)
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_24bit_yuv_special.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_24bit_yuv_special.framebuffer_target u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+
+#
+# Usage properties for the Arm reference Gralloc
+#
+# The Mali™ DDK reads these properties to obtain information about the values of the vendor
+# usage bits. These vendor usage bits have the type BufferUsage defined in the AOSP file
+# hardware/interfaces/graphics/common/1.0/types.hal. The values can be passed to
+# the allocate function from the Android IAllocator interface.
+#
+# No AFBC vendor usage bit
+ro.vendor.arm.gralloc.no_afbc_usage_flags u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+ro.vendor.arm.gralloc.no_afbc_usage_mask u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+# Force Back Buffer vendor usage bit
+ro.vendor.arm.gralloc.force_back_buffer_usage_flags u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+ro.vendor.arm.gralloc.force_back_buffer_usage_mask u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+# Shared Access vendor usage bit
+ro.vendor.arm.gralloc.shared_access_usage_flags u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+ro.vendor.arm.gralloc.shared_access_usage_mask u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+# RGBA AFRC vendor usage bits
+ro.vendor.arm.gralloc.afrc_rgba_usage_flags u:object_r:vendor_arm_gralloc_prop:s0 exact string
+ro.vendor.arm.gralloc.afrc_rgba_usage_mask u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+# YUV AFRC vendor usage bits
+ro.vendor.arm.gralloc.afrc_luma_usage_flags u:object_r:vendor_arm_gralloc_prop:s0 exact string
+ro.vendor.arm.gralloc.afrc_luma_usage_mask u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+ro.vendor.arm.gralloc.afrc_chroma_usage_flags u:object_r:vendor_arm_gralloc_prop:s0 exact string
+ro.vendor.arm.gralloc.afrc_chroma_usage_mask u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+
+#
+# Mali GPU driver configuration and debug options
+#
+# These properties are used for GPU driver configuration and debugging.
+#
+vendor.mali. u:object_r:vendor_arm_runtime_option_prop:s0 prefix
