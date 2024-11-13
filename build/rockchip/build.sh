@@ -29,7 +29,7 @@ BUILD_PACKING=false
 BUILD_VARIANT=`get_build_var TARGET_BUILD_VARIANT`
 KERNEL_DTS=""
 BUILD_VERSION=""
-BUILD_JOBS=16
+BUILD_JOBS=88
 
 # check pass argument
 while getopts "UCKABpouv:d:V:J:" arg

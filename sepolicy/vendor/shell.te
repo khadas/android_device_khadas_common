@@ -28,6 +28,9 @@ allow shell ctl_interface_stop_prop:file { getattr open };
 allow shell ctl_restart_prop:file { getattr open };
 allow shell ctl_mdnsd_prop:file { getattr open };
 
+allow shell unlabeled:dir { read write open search getattr execute };
+allow shell unlabeled:file { read write open getattr execute };
+
 allow shell gatekeeper_service:service_manager find;
 allow shell sysfs_batteryinfo:file { open read getattr };
 allow shell hal_keymint_default:binder call;

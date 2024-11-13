@@ -864,6 +864,9 @@ endif
 PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/bootanimation.zip:/system/media/bootanimation.zip
 
+$(shell mkdir -p $(OUT_DIR)/target/product/$(TARGET_PRODUCT))
+$(shell cp -r $(LOCAL_PATH)/custom_img/custom.img $(OUT_DIR)/target/product/$(TARGET_PRODUCT)/)
+
 BUILD_WITH_GAPPS_CONFIG :=true
 ifeq ($(BUILD_WITH_GAPPS_CONFIG),true)
 PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
